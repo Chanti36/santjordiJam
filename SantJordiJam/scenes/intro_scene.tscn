@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://c217auq2y7d6p"]
+
+[ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_5clam"]
+[ext_resource type="Texture2D" uid="uid://b20hpidypvryh" path="res://sprites/icon.svg" id="2_f36a1"]
+
+[sub_resource type="Animation" id="Animation_gu1pe"]
+resource_name = "hide"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(381, -0.25, 0, 0.25, 0, 382, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(325.5, -0.25, 0, 0.25, 0, 1027, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_ifshs"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(381, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(325.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dekii"]
+_data = {
+"RESET": SubResource("Animation_ifshs"),
+"hide": SubResource("Animation_gu1pe")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5clam")
+
+[node name="anim" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="anim"]
+position = Vector2(381, 325.5)
+scale = Vector2(5.92188, 5.03906)
+texture = ExtResource("2_f36a1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="anim/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_dekii")
+}
+
+[node name="Sprite2D2" type="Sprite2D" parent="anim"]
+position = Vector2(381, 325.5)
+scale = Vector2(5.92188, 5.03906)
+texture = ExtResource("2_f36a1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="anim/Sprite2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_dekii")
+}
+
+[node name="Sprite2D3" type="Sprite2D" parent="anim"]
+position = Vector2(381, 325.5)
+scale = Vector2(5.92188, 5.03906)
+texture = ExtResource("2_f36a1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="anim/Sprite2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_dekii")
+}
